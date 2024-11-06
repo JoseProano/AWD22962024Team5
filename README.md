@@ -1,31 +1,31 @@
 # AWD22962024Team5
 Advanced Web Development course of Universidad de las Fuerzas Armadas ESPE
 
--Homework
--Workshops
--Exams
--Projects
--Other documents
+- Homework
+- Workshops
+- Exams
+- Projects
+- Other documents
 
 Author:
 Intructor: Edison Lascano
 
-##Project Title
+## Project Title
 ?
-##Description
+## Description
 
-##Installing
--Visual Studio code
-##Getting Started
+## Installing
+- Visual Studio code
+## Getting Started
 
-###Dependencias
+### Dependencias
 node js.React.Angilar Java
-###Installing
-Visual Studio code
-Neatbeans
-Angular
-React
-Browsers
+### Installing
+- Visual Studio code
+- Neatbeans
+- Angular
+- React
+- Browsers
 
 ### Executing program
 COMANDOS FROM UBUNTU
