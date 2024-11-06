@@ -10,11 +10,11 @@ Advanced Web Development course of Universidad de las Fuerzas Armadas ESPE
 Author:
 Intructor: Edison Lascano
 
-## Project Title
+# Project Title
 ?
-## Description
+# Description
 
-## Installing
+# Installing
 - Visual Studio code
 ## Getting Started
 
@@ -31,7 +31,7 @@ node js.React.Angilar Java
 COMANDOS FROM UBUNTU
 $ node index.js$
 
-##Authors
+## Authors
 
 
 ## Version History
