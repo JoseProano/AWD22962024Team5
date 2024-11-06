@@ -4,17 +4,17 @@ Advanced Web Development course of Universidad de las Fuerzas Armadas ESPE
 -Homework
 -Workshops
 -Exams
-Projects
+-Projects
 -Other documents
 
 Author:
 Intructor: Edison Lascano
 
-#Project Title
+##Project Title
 ?
-#Description
+##Description
 
-#Installing
+##Installing
 -Visual Studio code
 ##Getting Started
 
