@@ -1,0 +1,6 @@
+Product Catalog|php/productCatalog.php
+Search Products|php/searchProducts.php
+Get to know us|php/Background.php
+Projects|php/problem.php
+Staff Involved|php/staff_involved.php
+Customer Registration|php/customer_registration.php
