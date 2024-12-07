@@ -1,0 +1,3 @@
+Puzzles|#puzzles
+Building blocks|#building-blocks
+Eduactional Toys|#educational-toys
