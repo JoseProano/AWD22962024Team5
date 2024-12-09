@@ -1,0 +1,4 @@
+Catalogo de Productos|php/productCatalog.php
+Busqueda de Productos|php/searchProducts.php
+Sobre nosotros|php/Background.php
+Proyectos|php/problem.php
