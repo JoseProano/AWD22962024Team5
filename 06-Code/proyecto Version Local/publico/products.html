@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras | Madecor Didáctico</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css"> 
+    <link rel="stylesheet" href="css/products.css"> 
+    <link rel="stylesheet" href="css/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div class="menu-logo">
+                <img src="images/logo.png" alt="Logo Madecor">
+            </div>
+            <ul>
+                <li><a href="index.html"><span class="material-icons">home</span> Inicio</a></li>
+                <li><a href="products.html"><span class="material-icons">shopping_cart</span> Comprar</a></li>
+                <li><a href="aboutUs.html"><span class="material-icons">info</span> Sobre Nosotros</a></li>
+                <li><a href="projects.html"><span class="material-icons">work</span> Proyectos</a></li>
+                <li><a href="contact.html"><span class="material-icons">contact_mail</span> Contacto</a></li>
+            </ul>
+            <div class="menu-buttons" id="menu-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'"><span class="material-icons">login</span> LOGIN</button>
+                <button class="btn-register" onclick="window.location.href='register.html'"><span class="material-icons">person_add</span> REGISTER</button>
+                <button class="btn-cart" onclick="window.location.href='productCart.html'"><span class="material-icons">shopping_cart</span></button>
+            </div>                 
+        </nav>
+
+        <div id="logout-modal" class="modal hidden">
+            <span id="logout-modal-message" class="modal-message"></span>
+        </div>
+
+    </header>
+
+    <main class="content">
+        <section id="products">
+            <h2>Productos en Stock</h2>
+            <div class="search-filter">
+                <div class="search-bar-container">
+                    <input type="text" id="search-bar" placeholder="Buscar productos...">
+                    <button class="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="filters">
+                    <select id="filter-category">
+                        <option value="all">Todas las categorías</option>
+                        <option value="juegos">Juegos</option>
+                        <option value="educativos">Educativos</option>
+                        <option value="puzzles">Puzzles</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="price-filter">
+                    <label for="price-range">Rango de Precio:</label>
+                    <input type="range" id="price-range" min="0" max="500" step="1" value="500">
+                    <span id="price-value">$500</span>
+                </div>
+            </div>
+
+            <div id="cart-modal" class="cart-modal hidden">
+                <p id="cart-modal-message"></p>
+            </div>
+            
+            <div class="products-container" id="products-container">
+            </div>
+            
+        </section>
+    </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-details">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <h2>Visítanos</h2>
+                <p>Isla Genovesa N43-87 y Tomas de Berlanga<br>Quito, Ecuador</p>
+                <p>Email: <a href="mailto:madecordidactico@hotmail.com">madecordidactico@hotmail.com</a></p>
+                <p>Teléfono: <a href="tel:+593995015414">+593 99 501 5414</a></p>
+            </div>
+            <div class="footer-social">
+                <h2>Conéctate con nosotros</h2>
+                <div class="social-icons">
+                    <a href="https://wa.me/593995014514" target="_blank" class="social-icon">
+                        <span class="material-icons">chat</span>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
+                        <span class="material-icons">facebook</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-map">
+                <h2>Ubicación</h2>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Madecor Didáctico. Todos los derechos reservados. Diseñado con 💙 en Quito, Ecuador.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/autenticator.js"></script>
+    <script src="js/scripts2.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdmG7Gq1NWeKFF-sKLcrcemIGGOTiCa58&callback=initMap"></script>
+</body>
+</html>

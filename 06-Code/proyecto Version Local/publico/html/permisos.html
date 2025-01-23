@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Permisos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Menú lateral -->
+    <div id="sidebar" class="bg-dark text-white p-3 position-sticky" style="top: 0; height: 100vh; width: 250px;">
+      <div class="text-center mb-4">
+        <img src="../img/Imagen de WhatsApp 2024-11-10 a las 18.35.16_abc01734.jpg" alt="Logo" class="img-fluid mb-3 shadow">
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-3">
+          <a href="inicio.html" class="nav-link text-white p-3 d-flex align-items-center" id="inicioBtn">
+            <i class="fa-solid fa-house me-2"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="empleados.html" class="nav-link text-white p-3 d-flex align-items-center" id="asignarBtn">
+            <i class="fa-solid fa-user-plus me-2"></i>Asignar
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="clientes.html" class="nav-link text-white p-3 d-flex align-items-center" id="clienteBtn">
+            <i class="fa-solid fa-users me-2"></i>Cliente
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="productos.html" class="nav-link text-white p-3 d-flex align-items-center" id="inventarioBtn">
+            <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link text-white p-3 d-flex align-items-center" id="ventasBtn">
+            <i class="fa-solid fa-cart-shopping me-2"></i>Ventas
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link text-white p-3 d-flex align-items-center" id="reportesBtn">
+            <i class="fa-solid fa-chart-line me-2"></i>Reportes
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="permisos.html" class="nav-link text-white p-3 d-flex align-items-center active" id="configuracionesBtn">
+            <i class="fa-solid fa-gear me-2"></i>Configuraciones
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <!-- Encabezado -->
+      <div class="bg-dark text-white d-flex justify-content-between align-items-center p-3">
+        <button id="menuToggle" class="btn btn-sm btn-outline-light me-2">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h5 class="m-0">Gestión de Permisos</h5>
+        <div class="d-flex align-items-center">
+          <img src="../img/avatar-male2.png" alt="User" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+          <button class="btn btn-sm btn-outline-light" id="cerrarSesionBtn">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+          </button>     
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="p-4">
+        <!-- Descripción -->
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-key me-3"></i>Gestión de Permisos</h4>
+          <p>Administra los permisos de acceso para diferentes módulos del sistema. Puedes crear nuevos permisos y asignarles módulos específicos.</p>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Formulario de creación -->
+<div id="nuevo" class="mb-4">
+    <h4 id="formTitle">Crear Permiso</h4> <!-- Cambiar el título según la acción -->
+    <form id="formPermiso">
+      <div class="mb-3">
+        <label for="permisoNombre" class="form-label">Nombre del Permiso</label>
+        <input type="text" class="form-control" id="permisoNombre" placeholder="Nombre del permiso" required>
+      </div>
+      <div class="mb-3">
+        <label for="permisoDescripcion" class="form-label">Descripción del Permiso</label>
+        <textarea class="form-control" id="permisoDescripcion" placeholder="Descripción del permiso" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="modulos" class="form-label">Selecciona los módulos:</label>
+        <div>
+          <input type="checkbox" name="modulos" value="asignar"> Asignar
+          <input type="checkbox" name="modulos" value="permisos"> Permisos
+          <input type="checkbox" name="modulos" value="cliente"> Cliente
+          <input type="checkbox" name="modulos" value="ventas"> Ventas
+          <input type="checkbox" name="modulos" value="productos"> Productos
+          <input type="checkbox" name="modulos" value="reportes"> Reportes
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar Permiso</button>
+      <button type="reset" class="btn btn-secondary">Restablecer</button>
+    </form>
+  </div>
+  
+
+        <!-- Listado de permisos -->
+        <div id="listado" class="d-none">
+            <h4>Listado de Permisos</h4>
+            <div class="mb-3">
+                <input
+                  type="text"
+                  id="barraBusqueda"
+                  class="form-control"
+                  placeholder="Buscar permisos por ID o nombre"
+                />
+              </div>
+              <table id="tablaPermisos" class="table table-bordered">
+                <!-- Contenido generado dinámicamente -->
+              </table>
+        </div>
+        <!-- Formulario de Edición (inicialmente oculto) -->
+        <div id="editarPermisoForm" class="mb-4 d-none">
+            <h4>Editar Permiso</h4>
+            <form id="formEditarPermiso">
+                <div class="mb-3">
+                    <label for="editarPermisoNombre" class="form-label">Nombre del Permiso</label>
+                    <input type="text" class="form-control" id="editarPermisoNombre" placeholder="Nombre del permiso" required>
+                </div>
+                <div class="mb-3">
+                    <label for="editarPermisoDescripcion" class="form-label">Descripción del Permiso</label>
+                    <textarea class="form-control" id="editarPermisoDescripcion" placeholder="Descripción del permiso" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="editarModulos" class="form-label">Selecciona los módulos:</label>
+                    <div id="editarModulos">
+                        <input type="checkbox" name="modulos" value="asignar"> Asignar
+                        <input type="checkbox" name="modulos" value="permisos"> Permisos
+                        <input type="checkbox" name="modulos" value="cliente"> Cliente
+                        <input type="checkbox" name="modulos" value="ventas"> Ventas
+                        <input type="checkbox" name="modulos" value="productos"> Productos
+                        <input type="checkbox" name="modulos" value="reportes"> Reportes
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+  <span id="mensajeTexto">Operación exitosa.</span>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirmación de Cierre de Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de que desea cerrar sesión?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/permisos.js"></script>
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
