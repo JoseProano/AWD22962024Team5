@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Madecor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/cartShop.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div class="menu-logo">
+                <img src="images/logo.png" alt="Logo Madecor">
+            </div>
+            <ul>
+                <li><a href="index.html"><span class="material-icons">home</span> Inicio</a></li>
+                <li><a href="products.html"><span class="material-icons">shopping_cart</span> Comprar</a></li>
+                <li><a href="aboutUs.html"><span class="material-icons">info</span> Sobre Nosotros</a></li>
+                <li><a href="projects.html"><span class="material-icons">work</span> Proyectos</a></li>
+                <li><a href="contact.html"><span class="material-icons">contact_mail</span> Contacto</a></li>
+            </ul>
+            <div class="menu-buttons" id="menu-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'"><span class="material-icons">login</span> LOGIN</button>
+                <button class="btn-register" onclick="window.location.href='register.html'"><span class="material-icons">person_add</span> REGISTER</button>
+                <button class="btn-cart" onclick="window.location.href='productCart.html'"><span class="material-icons">shopping_cart</span></button>
+            </div>                  
+        </nav>
+
+        <div id="logout-modal" class="modal hidden">
+            <span id="logout-modal-message" class="modal-message"></span>
+        </div>
+
+    </header>
+
+    <main>
+        <section id="cart-container" class="cart">
+            <h2>Tu Carrito</h2>
+            <div id="cart-items">
+            </div>
+            <div class="cart-summary">
+                <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+                <p><strong>IVA (15%):</strong> $<span id="iva">0.00</span></p>
+                <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+                <button id="back-button">Atrás</button>
+                <button id="checkout-button">Proceder al Pago</button>
+            </div>
+
+            <div id="cart-modal" class="cart-modal hidden">
+                <p id="cart-modal-message"></p>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <h2>Visítanos</h2>
+                <p>Isla Genovesa N43-87 y Tomas de Berlanga<br>Quito, Ecuador</p>
+                <p>Email: <a href="mailto:madecordidactico@hotmail.com">madecordidactico@hotmail.com</a></p>
+                <p>Teléfono: <a href="tel:+593995015414">+593 99 501 5414</a></p>
+            </div>
+            <div class="footer-social">
+                <h2>Conéctate con nosotros</h2>
+                <div class="social-icons">
+                    <a href="https://wa.me/593995014514" target="_blank" class="social-icon">
+                        <span class="material-icons">chat</span>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
+                        <span class="material-icons">facebook</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-map">
+                <h2>Ubicación</h2>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Madecor Didáctico. Todos los derechos reservados. Diseñado con 💙 en Quito, Ecuador.</p>
+        </div>
+    </footer>
+    
+    <script src="js/products.js"></script>
+    <script src="js/autenticator.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/cartShop.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdmG7Gq1NWeKFF-sKLcrcemIGGOTiCa58&callback=initMap"></script>
+
+</body>
+</html>

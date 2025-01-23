@@ -1,0 +1,97 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #FF7E1B, #FFAA4C);
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-logo img {
+    width: 85px;
+    height: auto;
+    border-radius: 10px; 
+    border: 2px solid white; 
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.menu-logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.menu ul li a:hover {
+    background-color: #FFAA4C;
+    color: #2c3e50;
+}
+
+.menu-buttons button {
+    background-color: #FFFFFF;
+    color: #FF7E1B;
+    border: none;
+    padding: 10px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-buttons button:hover {
+    background-color: #FFAA4C;
+    transform: scale(1.05);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
