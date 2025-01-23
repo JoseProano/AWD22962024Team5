@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Clientes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Menú lateral -->
+    <div id="sidebar" class="bg-dark text-white p-3 position-sticky" style="top: 0; height: 200%; width: 250px;">
+      <div class="text-center mb-4">
+        <img src="../img/Imagen de WhatsApp 2024-11-10 a las 18.35.16_abc01734.jpg" alt="Logo" class="img-fluid mb-3 shadow">
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-3">
+          <a href="inicio.html" class="nav-link text-white p-3 d-flex align-items-center" id="inicioBtn">
+            <i class="fa-solid fa-house me-2"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="empleados.html" class="nav-link text-white p-3 d-flex align-items-center" id="asignarBtn">
+            <i class="fa-solid fa-user-plus me-2"></i>Asignar
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link text-white p-3 d-flex align-items-center active" id="clienteBtn">
+            <i class="fa-solid fa-users me-2"></i>Cliente
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="productos.html" class="nav-link text-white p-3 d-flex align-items-center" id="inventarioBtn">
+            <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="ventas.html" class="nav-link text-white p-3 d-flex align-items-center" id="ventasBtn">
+            <i class="fa-solid fa-cart-shopping me-2"></i>Ventas
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="reportes.html" class="nav-link text-white p-3 d-flex align-items-center" id="reportesBtn">
+            <i class="fa-solid fa-chart-line me-2"></i>Reportes
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="permisos.html" class="nav-link text-white p-3 d-flex align-items-center" id="configuracionesBtn">
+            <i class="fa-solid fa-gear me-2"></i>Configuraciones
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <!-- Encabezado -->
+      <div class="bg-dark text-white d-flex justify-content-between align-items-center p-3">
+        <button id="menuToggle" class="btn btn-sm btn-outline-light me-2">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h5 class="m-0">Gestión de Clientes</h5>
+        <div class="d-flex align-items-center">
+          <img src="../img/avatar-male2.png" alt="User" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+          <button class="btn btn-sm btn-outline-light" id="cerrarSesionBtn">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+          </button>     
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="p-4">
+        <!-- Descripción -->
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-user-plus me-3"></i>Gestión de Clientes</h4>
+          <p>Administra los clientes, incluyendo la asignación de datos personales y dirección.</p>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Formulario de creación de cliente -->
+        <div id="nuevo" class="mb-4">
+          <h4 id="formTitle">Crear Nuevo Cliente</h4>
+          <form id="formCliente">
+            <div class="mb-3">
+              <label for="clienteCedula" class="form-label">Cédula:</label>
+              <input type="text" class="form-control" id="clienteCedula" name="clienteCedula" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteNombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="clienteNombre" name="clienteNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteApellido" class="form-label">Apellido:</label>
+              <input type="text" class="form-control" id="clienteApellido" name="clienteApellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteNacimiento" class="form-label">Fecha de Nacimiento:</label>
+              <input type="date" class="form-control" id="clienteNacimiento" name="clienteNacimiento" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteGenero" class="form-label">Género:</label>
+              <select class="form-select" id="clienteGenero" name="clienteGenero" required>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="clienteEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="clienteEmail" name="clienteEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteTelefono" class="form-label">Teléfono:</label>
+              <input type="text" class="form-control" id="clienteTelefono" name="clienteTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="clientePais" class="form-label">País:</label>
+              <input type="text" class="form-control" id="clientePais" name="clientePais" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteDireccion" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="clienteDireccion" name="clienteDireccion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+            <button type="reset" class="btn btn-secondary">Restablecer</button>
+          </form>
+        </div>
+
+        <!-- Listado de clientes -->
+        <div id="listado" class="d-none">
+          <h4>Listado de Clientes</h4>
+          <div class="mb-3">
+            <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar clientes por cédula">
+          </div>
+          <table id="tablaClientes" class="table table-bordered">
+            <!-- Contenido generado dinámicamente -->
+          </table>
+        </div>
+
+        <!-- Formulario de Edición de Cliente -->
+        <div id="editarClienteForm" class="mb-4 d-none">
+          <h4>Editar Cliente</h4>
+          <form id="formEditarCliente">
+            <div class="mb-3">
+              <label for="editarClienteNombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="editarClienteNombre" name="editarClienteNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteApellido" class="form-label">Apellido:</label>
+              <input type="text" class="form-control" id="editarClienteApellido" name="editarClienteApellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="editarClienteEmail" name="editarClienteEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteTelefono" class="form-label">Teléfono:</label>
+              <input type="text" class="form-control" id="editarClienteTelefono" name="editarClienteTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClientePais" class="form-label">País:</label>
+              <input type="text" class="form-control" id="editarClientePais" name="editarClientePais" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteDireccion" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="editarClienteDireccion" name="editarClienteDireccion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary" id="cancelarEdicion">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+          <div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+            <span id="mensajeTexto">Operación exitosa.</span>
+          </div>
+   <!-- Modal de Confirmación -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirmación de Cierre de Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de que desea cerrar sesión?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+          
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/clientes.js"></script>
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
