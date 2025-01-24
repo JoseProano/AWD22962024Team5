@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Menú lateral -->
+    <div id="sidebar" class="bg-dark text-white p-3 position-sticky" style="top: 0; height: 200%; width: 250px;">
+      <div class="text-center mb-4">
+        <img src="../img/Imagen de WhatsApp 2024-11-10 a las 18.35.16_abc01734.jpg" alt="Logo" class="img-fluid mb-3 shadow">
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-3">
+          <a href="inicio.html" class="nav-link text-white p-3 d-flex align-items-center" id="inicioBtn">
+            <i class="fa-solid fa-house me-2"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="empleados.html" class="nav-link text-white p-3 d-flex align-items-center" id="asignarBtn">
+            <i class="fa-solid fa-user-plus me-2"></i>Asignar
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="clientes.html" class="nav-link text-white p-3 d-flex align-items-center" id="clienteBtn">
+            <i class="fa-solid fa-users me-2"></i>Clientes
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link text-white p-3 d-flex align-items-center active" id="inventarioBtn">
+            <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="ventas.html" class="nav-link text-white p-3 d-flex align-items-center" id="ventasBtn">
+            <i class="fa-solid fa-cart-shopping me-2"></i>Ventas
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="reportes.html" class="nav-link text-white p-3 d-flex align-items-center" id="reportesBtn">
+            <i class="fa-solid fa-chart-line me-2"></i>Reportes
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="permisos.html" class="nav-link text-white p-3 d-flex align-items-center" id="configuracionesBtn">
+            <i class="fa-solid fa-gear me-2"></i>Configuraciones
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <!-- Encabezado -->
+      <div class="bg-dark text-white d-flex justify-content-between align-items-center p-3">
+        <button id="menuToggle" class="btn btn-sm btn-outline-light me-2">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h5 class="m-0">Gestión de Productos</h5>
+        <div class="d-flex align-items-center">
+          <img src="../img/avatar-male2.png" alt="User" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+          <button class="btn btn-sm btn-outline-light">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+          </button>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="p-4">
+        <!-- Descripción -->
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-boxes-stacked me-3"></i>Gestión de Productos</h4>
+          <p>Administra los productos, incluyendo creación, edición y estado.</p>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoProductoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoProductoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Formulario de creación de producto -->
+        <div id="nuevoProducto" class="mb-4">
+          <h4>Crear Nuevo Producto</h4>
+          <form id="formProducto">
+            <div class="mb-3">
+              <label for="productoNombre" class="form-label">Nombre del Producto</label>
+              <input type="text" id="productoNombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="productoCodigo" class="form-label">Código del Producto</label>
+              <input type="text" id="productoCodigo" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="productoPrecio" class="form-label">Precio</label>
+              <input type="number" id="productoPrecio" class="form-control" step="0.01" required>
+            </div>
+            <div class="mb-3">
+              <label for="productoStock" class="form-label">Stock</label>
+              <input type="number" id="productoStock" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="productoDescripcion" class="form-label">Descripción</label>
+              <textarea id="productoDescripcion" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="productoImagen" class="form-label">Imagen del Producto</label>
+              <input type="file" id="productoImagen" class="form-control" name="productoImagen" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+        </div>
+
+        <!-- Listado de productos -->
+        <div id="listadoProductos" class="d-none">
+          <h4>Listado de Productos</h4>
+          <div class="mb-3">
+            <input type="text" id="barraBusquedaProducto" class="form-control" placeholder="Buscar productos por código...">
+          </div>
+          <table id="tablaProductos" class="table table-striped">
+            <!-- Contenido generado dinámicamente -->
+          </table>
+        </div>
+
+        <!-- Formulario de edición de producto -->
+        <div id="editarProductoForm" class="d-none">
+          <h4>Editar Producto</h4>
+          <form>
+            <div class="mb-3">
+              <label for="editarProductoNombre" class="form-label">Nombre del Producto</label>
+              <input type="text" id="editarProductoNombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarProductoCodigo" class="form-label">Código del Producto</label>
+              <input type="text" id="editarProductoCodigo" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarProductoPrecio" class="form-label">Precio</label>
+              <input type="number" id="editarProductoPrecio" class="form-control" step="0.01" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarProductoStock" class="form-label">Stock</label>
+              <input type="number" id="editarProductoStock" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarProductoDescripcion" class="form-label">Descripción</label>
+              <textarea id="editarProductoDescripcion" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editarProductoImagen" class="form-label">Imagen del Producto</label>
+              <input type="file" id="editarProductoImagen" class="form-control" name="editarProductoImagen" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </form>
+        </div>
+
+        <!-- Mensaje flotante -->
+        <div id="mensajeFlotante" class="alert position-fixed bottom-0 end-0 m-4" style="display: none; z-index: 1050;">
+          <span id="mensajeTexto"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/productos.js"></script>
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
