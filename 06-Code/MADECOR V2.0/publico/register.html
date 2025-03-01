@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="modal" class="modal hidden">
+        <span id="modal-message" class="modal-message"></span>
+    </div>
+
+    <div class="container">
+        <div class="side-content">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Logo Madecor">
+            </div>
+            <h2>MADECOR DIDÁCTICO</h2>
+            <p>Fabricamos materiales educativos innovadores para fomentar el aprendizaje a través del juego.</p>
+            <button class="btn-back" onclick="history.back()">Volver</button>
+        </div>
+        <div class="form-container">
+            <h1>Registro de Usuario</h1>
+            <form id="register-form">
+                <div class="form-group">
+                    <input type="text" id="cedula" name="usuario_cedula" placeholder="Cédula" required />
+                    <input type="text" id="nombre" name="usuario_nombre" placeholder="Nombre" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="apellido" name="usuario_apellido" placeholder="Apellido" required />
+                    <input type="number" id="edad" name="usuario_edad" placeholder="Edad" required />
+                </div>
+                <div class="form-group">
+                    <select name="usuario_genero" id="genero" required>
+                        <option value="">Selecciona tu género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                    <input type="email" id="email" name="usuario_email" placeholder="Correo Electrónico" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="telefono" name="usuario_telefono" placeholder="Teléfono" required />
+                    <input type="text" id="usuario" name="usuario_usuario" placeholder="Usuario" required />
+                </div>
+                <div class="form-group">
+                    <input type="password" id="contrasena" name="usuario_contrasena" placeholder="Contraseña" required />
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("nombre").value = params.get("nombre") || "";
+        document.getElementById("apellido").value = params.get("apellido") || "";
+        document.getElementById("email").value = params.get("email") || "";
+    </script>
+    <script src="/js/register.js"></script>
+    <script src="/js/registerValidation.js"></script>
+</body>
+</html>
