@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Reportes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="/css/estilo.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="/css/error.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Menú lateral -->
+    <div data-include="/html/menu.html"></div>
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <!-- Encabezado -->
+      <div data-include="/html/header.html" data-title="Gestión de Reportes"></div>
+
+      <!-- Contenido -->
+      <div class="p-4">
+        <!-- Descripción -->
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-chart-line me-3"></i>Gestión de Reportes</h4>
+          <p>Consulta y analiza los reportes de ventas, productos, clientes y más.</p>
+        </div>
+
+        <!-- Selector de tipo de reporte -->
+        <div class="mb-4">
+          <label for="tipoReporteSelect" class="form-label">Tipo de Reporte:</label>
+          <select id="tipoReporteSelect" class="form-select">
+            <option value="ventas">Ventas</option>
+            <option value="detalles-ventas">Detalles de Ventas</option>
+            <option value="productos">Productos</option>
+            <option value="clientes">Clientes</option>
+            <option value="trabajadores">Trabajadores</option>
+          </select>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="mb-4">
+          <input type="text" id="barraBusquedaReporte" class="form-control" placeholder="Buscar en reporte">
+        </div>
+
+        <!-- Botón para generar PDF -->
+        <div class="mb-4">
+          <button id="generarPDF" class="btn btn-primary">Generar PDF</button>
+        </div>
+
+        <!-- Visor de PDF -->
+        <iframe id="pdfViewer" style="width: 100%; height: 500px;" frameborder="0" title="Reporte"></iframe>
+
+        <!-- Tabla de reportes -->
+        <table id="tablaReportes" class="table table-bordered" style="display: none;">
+          <!-- Contenido generado dinámicamente -->
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor para el mensaje flotante -->
+  <div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+    <span id="mensajeTexto">Operación exitosa.</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/js/include.js" defer></script>
+  <script src="/js/inactivity.js" defer></script>
+  <script src="/js/scripts.js" defer></script>
+  <script src="/js/reportes.js" defer></script>
+</body>
+</html>

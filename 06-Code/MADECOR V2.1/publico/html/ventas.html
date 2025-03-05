@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Ventas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/estilo.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.12/jspdf.plugin.autotable.min.js"></script>
+  <link rel="stylesheet" href="/css/error.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <!-- Menú lateral -->
+    <div data-include="/html/menu.html"></div>
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <!-- Encabezado -->
+      <div data-include="/html/header.html" data-title="Gestión de Ventas"></div>
+
+      <!-- Contenido -->
+      <div class="p-4">
+        <!-- Descripción -->
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-cart-shopping me-3"></i>Gestión de Ventas</h4>
+          <p>Administra las ventas, incluyendo la asignación de datos y detalles de la venta.</p>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+<!-- Formulario de creación de venta -->
+<div id="nuevo" class="mb-4">
+  <h4 id="formTitle">Crear Nueva Venta</h4>
+  <form id="formVenta">
+    <div class="mb-3">
+      <label for="ventaClienteId" class="form-label">ID del Cliente:</label>
+      <input type="text" class="form-control" id="ventaClienteId" name="ventaClienteId" required>
+    </div>
+    <div class="mb-3">
+      <label for="ventaTrabajadorId" class="form-label">ID del Trabajador:</label>
+      <input type="text" class="form-control" id="ventaTrabajadorId" name="ventaTrabajadorId" required>
+    </div>
+    <div class="mb-3">
+      <label for="ventaIva" class="form-label">IVA (%):</label>
+      <input type="number" class="form-control" id="ventaIva" name="ventaIva" value="12" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Productos:</label>
+      <div id="productosContainer">
+        <!-- Campos dinámicos para productos -->
+      </div>
+      <button type="button" class="btn btn-secondary" id="addProduct">Agregar Producto</button>
+    </div>
+    <div class="mb-3">
+      <label for="ventaTotal" class="form-label">Total:</label>
+      <input type="number" class="form-control" id="ventaTotal" name="ventaTotal" readonly>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Venta</button>
+    <button type="reset" class="btn btn-secondary">Restablecer</button>
+  </form>
+</div>
+
+        <!-- Listado de ventas -->
+        <div id="listado" class="d-none">
+          <h4>Listado de Ventas</h4>
+          <div class="mb-3">
+            <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar ventas">
+          </div>
+          <table id="tablaVentas" class="table table-bordered">
+            <!-- Contenido generado dinámicamente -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Contenedor para el mensaje flotante -->
+<div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+  <span id="mensajeTexto">Operación exitosa.</span>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/js/include.js" defer></script>
+  <script src="/js/inactivity.js" defer></script>
+  <script src="/js/scripts.js" defer></script>
+  <script src="/js/ventas.js" defer></script>
+  <script src="/js/ventasValidation.js"></script>
+</body>
+</html>
