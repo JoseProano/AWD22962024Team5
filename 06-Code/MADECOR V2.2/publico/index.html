@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madecor Didáctico</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenido a <span>Madecor Didáctico</span></h1>
+                <p>Fabricamos materiales educativos innovadores y ecológicos para fomentar el aprendizaje a través del juego. Nuestros productos están diseñados para inspirar y educar a través de la creatividad.</p>
+                <a href="/products.html" class="cta-button">Ver Productos</a>
+            </div>
+            <div class="hero-image">
+                <img src="/images/hero-image.jpg" alt="Materiales educativos Madecor">
+            </div>
+        </section>
+        
+        <section class="carousel">
+            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="/images/product1.jpg" alt="Producto 1">
+                    <p class="carousel-description">Bloques de madera educativos.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/product2.jpg" alt="Producto 2">
+                    <p class="carousel-description">Puzzles interactivos.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/product3.jpg" alt="Producto 3">
+                    <p class="carousel-description">Tableros educativos creativos.</p>
+                </div>
+            </div>
+            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+            <div class="carousel-text">
+                <h2>Nuestros Productos Destacados</h2>
+                <p>Descubre materiales educativos diseñados para estimular la creatividad y el aprendizaje.</p>
+            </div>
+        </section> 
+        
+    </main>
+
+    <div id="footer-container"></div>
+    
+    <script src="/js/inactivity.js"></script>
+    <script src="/js/templates.js"></script>
+    <script src="/js/scripts2.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/autenticator.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdmG7Gq1NWeKFF-sKLcrcemIGGOTiCa58&callback=initMap"></script>
+    <a href="https://wa.me/593995015414" target="_blank" class="whatsapp-float">
+        <img src="/images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+    
+</body>
+</html>
