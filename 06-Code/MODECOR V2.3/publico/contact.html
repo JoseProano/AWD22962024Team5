@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Madecor Didáctico</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/menu.css"> 
+    <link rel="stylesheet" href="/css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="content">
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Estamos aquí para ayudarte. Contáctanos a través de nuestras redes sociales, correo o visítanos en nuestra ubicación.</p>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <span class="material-icons">location_on</span>
+                    <h3>Dirección</h3>
+                    <p>Isla Genovesa N43-87 y Tomas de Berlanga<br>Quito, Ecuador</p>
+                </div>
+                <div class="info-card">
+                    <span class="material-icons">mail</span>
+                    <h3>Correo</h3>
+                    <p><a href="mailto:madecordidactico@hotmail.com">madecordidactico@hotmail.com</a></p>
+                </div>
+                <div class="info-card">
+                    <span class="material-icons">phone</span>
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+593995015414">+593 99 501 5414</a></p>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/593995014514" target="_blank" class="social-icon">
+                        <span class="material-icons">chat</span>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon">
+                        <span class="material-icons">facebook</span>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <span class="material-icons">photo_camera</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <h3>Ubicación</h3>
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    
+    <script src="/js/inactivity.js"></script>
+    <script src="/js/templates.js"></script>
+    <script src="/js/scripts2.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/autenticator.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdmG7Gq1NWeKFF-sKLcrcemIGGOTiCa58&callback=initMap"></script>
+    <a href="https://wa.me/593995015414" target="_blank" class="whatsapp-float">
+        <img src="/images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+</body>
+</html>

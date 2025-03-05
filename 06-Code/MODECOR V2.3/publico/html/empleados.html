@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Trabajadores</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/estilo.css">
+  <link rel="stylesheet" href="/css/error.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <div data-include="/html/menu.html"></div>
+
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <div data-include="/html/header.html" data-title="Gestión de Trabajadores"></div>
+
+      <div class="p-4">
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-user-plus me-3"></i>Gestión de Trabajadores</h4>
+          <p>Administra los trabajadores, incluyendo la asignación de permisos y datos personales.</p>
+        </div>
+
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="nuevo" class="mb-4">
+          <h4 id="formTitle">Crear Nuevo Trabajador</h4>
+          <form id="formTrabajador">
+            <div class="mb-3">
+              <label for="usuarioCedula" class="form-label">Cédula:</label>
+              <input type="text" class="form-control" id="usuarioCedula" name="usuarioCedula" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioNombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="usuarioNombre" name="usuarioNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioApellido" class="form-label">Apellido:</label>
+              <input type="text" class="form-control" id="usuarioApellido" name="usuarioApellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioNacimiento" class="form-label">Fecha de Nacimiento:</label>
+              <input type="date" class="form-control" id="usuarioNacimiento" name="usuarioNacimiento" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioGenero" class="form-label">Género:</label>
+              <select class="form-select" id="usuarioGenero" name="usuarioGenero" required>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="usuarioEmail" name="usuarioEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioTelefono" class="form-label">Teléfono:</label>
+              <input type="text" class="form-control" id="usuarioTelefono" name="usuarioTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioUsuario" class="form-label">Usuario:</label>
+              <input type="text" class="form-control" id="usuarioUsuario" name="usuarioUsuario" required>
+            </div>
+            <div class="mb-3">
+              <label for="usuarioContrasena" class="form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="usuarioContrasena" name="usuarioContrasena" required>
+            </div>
+            <div class="mb-3">
+              <label for="trabajadorPermiso" class="form-label">Permiso:</label>
+              <select class="form-select" id="trabajadorPermiso" name="trabajadorPermiso" required>
+              </select>
+            </div>
+            <input type="hidden" id="usuarioTipo" name="usuarioTipo" value="trabajador">
+            <button type="submit" class="btn btn-primary">Guardar Trabajador</button>
+            <button type="reset" class="btn btn-secondary">Restablecer</button>
+          </form>
+        </div>
+
+        <div id="listado" class="d-none">
+          <h4>Listado de Trabajadores</h4>
+          <div class="mb-3">
+            <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar trabajadores por cedula">
+          </div>
+          <table id="tablaTrabajadores" class="table table-bordered">
+          </table>
+        </div>
+
+        <div id="editarTrabajadorForm" class="mb-4 d-none">
+          <h4>Editar Trabajador</h4>
+          <form id="formEditarTrabajador">
+            <div class="mb-3">
+              <label for="editarTrabajadorNombre" class="form-label">Nombre del Trabajador</label>
+              <input type="text" class="form-control" id="editarTrabajadorNombre" placeholder="Nombre del trabajador" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarTrabajadorApellido" class="form-label">Apellido del Trabajador</label>
+              <input type="text" class="form-control" id="editarTrabajadorApellido" placeholder="Apellido del trabajador" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarTrabajadorEmail" class="form-label">Email del Trabajador</label>
+              <input type="email" class="form-control" id="editarTrabajadorEmail" placeholder="Email del trabajador" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarTrabajadorTelefono" class="form-label">Teléfono del Trabajador</label>
+              <input type="text" class="form-control" id="editarTrabajadorTelefono" placeholder="Teléfono del trabajador" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarTrabajadorPermiso" class="form-label">Permiso:</label>
+              <select class="form-select" id="editarTrabajadorPermiso" name="trabajadorPermiso" required>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="reset" class="btn btn-secondary">Restablecer</button>
+          </form>
+        </div>
+
+        <div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+          <span id="mensajeTexto">Operación exitosa.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/js/include.js" defer></script>
+  <script src="/js/inactivity.js" defer></script>
+  <script src="/js/scripts.js" defer></script>
+  <script src="/js/trabajadores.js" defer></script>
+  <script src="/js/trabajadoresValidation.js" defer></script>
+</body>
+</html>
