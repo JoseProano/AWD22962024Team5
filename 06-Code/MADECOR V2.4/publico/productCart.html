@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Madecor</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/cartShop.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section id="cart-container" class="cart">
+            <h2>Tu Carrito</h2>
+            <div id="cart-items">
+            </div>
+            <div class="cart-summary">
+                <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+                <p><strong>IVA (15%):</strong> $<span id="iva">0.00</span></p>
+                <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+                <button id="back-button">Atrás</button>
+                <button id="checkout-button">Proceder al Pago</button>
+            </div>
+
+            <div id="cart-modal" class="cart-modal hidden">
+                <p id="cart-modal-message"></p>
+            </div>
+            
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    
+    <script src="/js/inactivity.js"></script>
+    <script src="/js/templates.js"></script>    
+    <script src="/js/products.js"></script>
+    <script src="/js/autenticator.js"></script>
+    <script src="/js/scripts2.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/cartShop.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdmG7Gq1NWeKFF-sKLcrcemIGGOTiCa58&callback=initMap"></script>
+
+</body>
+</html>

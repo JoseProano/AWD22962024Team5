@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Clientes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/estilo.css">
+  <link rel="stylesheet" href="/css/error.css">
+</head>
+<body class="bg-light">
+  <div class="d-flex" style="height: 100vh;">
+    <div data-include="/html/menu.html"></div>
+
+    <div class="flex-grow-1 d-flex flex-column" style="overflow-y: auto;">
+      <div data-include="/html/header.html" data-title="Gestión de Clientes"></div>
+
+      <div class="p-4">
+        <div class="mb-4">
+          <h4><i class="fa-solid fa-user-plus me-3"></i>Gestión de Clientes</h4>
+          <p>Administra los clientes, incluyendo la asignación de datos personales y dirección.</p>
+        </div>
+
+        <div class="d-flex justify-content-center p-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" id="nuevoBtn">
+                <i class="fa-solid fa-plus me-2"></i> Nuevo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" id="listadoBtn">
+                <i class="fa-solid fa-list-ul me-2"></i> Listado
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="nuevo" class="mb-4">
+          <h4 id="formTitle">Crear Nuevo Cliente</h4>
+          <form id="formCliente">
+            <div class="mb-3">
+              <label for="clienteCedula" class="form-label">Cédula:</label>
+              <input type="text" class="form-control" id="clienteCedula" name="clienteCedula" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteNombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="clienteNombre" name="clienteNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteApellido" class="form-label">Apellido:</label>
+              <input type="text" class="form-control" id="clienteApellido" name="clienteApellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteNacimiento" class="form-label">Fecha de Nacimiento:</label>
+              <input type="date" class="form-control" id="clienteNacimiento" name="clienteNacimiento" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteGenero" class="form-label">Género:</label>
+              <select class="form-select" id="clienteGenero" name="clienteGenero" required>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="clienteEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="clienteEmail" name="clienteEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteTelefono" class="form-label">Teléfono:</label>
+              <input type="text" class="form-control" id="clienteTelefono" name="clienteTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="clientePais" class="form-label">País:</label>
+              <input type="text" class="form-control" id="clientePais" name="clientePais" required>
+            </div>
+            <div class="mb-3">
+              <label for="clienteDireccion" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="clienteDireccion" name="clienteDireccion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+            <button type="reset" class="btn btn-secondary">Restablecer</button>
+          </form>
+        </div>
+
+        <div id="listado" class="d-none">
+          <h4>Listado de Clientes</h4>
+          <div class="mb-3">
+            <input type="text" id="barraBusqueda" class="form-control" placeholder="Buscar clientes por cédula">
+          </div>
+          <table id="tablaClientes" class="table table-bordered">
+          </table>
+        </div>
+
+        <div id="editarClienteForm" class="mb-4 d-none">
+          <h4>Editar Cliente</h4>
+          <form id="formEditarCliente">
+            <div class="mb-3">
+              <label for="editarClienteNombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="editarClienteNombre" name="editarClienteNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteApellido" class="form-label">Apellido:</label>
+              <input type="text" class="form-control" id="editarClienteApellido" name="editarClienteApellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="editarClienteEmail" name="editarClienteEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteTelefono" class="form-label">Teléfono:</label>
+              <input type="text" class="form-control" id="editarClienteTelefono" name="editarClienteTelefono" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClientePais" class="form-label">País:</label>
+              <input type="text" class="form-control" id="editarClientePais" name="editarClientePais" required>
+            </div>
+            <div class="mb-3">
+              <label for="editarClienteDireccion" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="editarClienteDireccion" name="editarClienteDireccion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary" id="cancelarEdicion">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mensajeFlotante" class="alert alert-success position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 9999;">
+    <span id="mensajeTexto">Operación exitosa.</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/js/include.js" defer></script>
+  <script src="/js/inactivity.js" defer></script>
+  <script src="/js/scripts.js" defer></script>
+  <script src="/js/clientes.js" defer></script>
+  <script src="/js/clientesValidation.js"></script>
+</body>
+</html>

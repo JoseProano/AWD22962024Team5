@@ -1,0 +1,63 @@
+<div id="sidebar" class="bg-dark text-white p-3 position-sticky" style="top: 0; height: 100vh; width: 250px;">
+  <div class="text-center mb-4">
+    <img src="/img/Imagen de WhatsApp 2024-11-10 a las 18.35.16_abc01734.jpg" alt="Logo" class="img-fluid mb-3 shadow">
+  </div>
+  <ul class="nav flex-column" id="menuItems">
+    <li class="nav-item mb-3">
+      <a href="/html/inicio.html" class="nav-link text-white p-3 d-flex align-items-center" id="inicioBtn">
+        <i class="fa-solid fa-house me-2"></i>Inicio
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="asignarItem">
+      <a href="/html/empleados.html" class="nav-link text-white p-3 d-flex align-items-center" id="asignarBtn">
+        <i class="fa-solid fa-user-plus me-2"></i>Asignar
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="clienteItem">
+      <a href="/html/clientes.html" class="nav-link text-white p-3 d-flex align-items-center" id="clienteBtn">
+        <i class="fa-solid fa-users me-2"></i>Clientes
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="productosItem">
+      <a href="/html/productos.html" class="nav-link text-white p-3 d-flex align-items-center" id="inventarioBtn">
+        <i class="fa-solid fa-boxes-stacked me-2"></i>Productos
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="ventasItem">
+      <a href="/html/ventas.html" class="nav-link text-white p-3 d-flex align-items-center" id="ventasBtn">
+        <i class="fa-solid fa-cart-shopping me-2"></i>Ventas
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="reportesItem">
+      <a href="/html/reportes.html" class="nav-link text-white p-3 d-flex align-items-center" id="reportesBtn">
+        <i class="fa-solid fa-chart-line me-2"></i>Reportes
+      </a>
+    </li>
+    <li class="nav-item mb-3" id="configuracionesItem">
+      <a href="/html/permisos.html" class="nav-link text-white p-3 d-flex align-items-center" id="configuracionesBtn">
+        <i class="fa-solid fa-gear me-2"></i>Configuraciones
+      </a>
+    </li>
+  </ul>
+</div>
+<script>
+  (() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const modulos = user ? user.modulos : [];
+
+    const menuItems = {
+      asignar: document.getElementById("asignarItem"),
+      cliente: document.getElementById("clienteItem"),
+      productos: document.getElementById("productosItem"),
+      ventas: document.getElementById("ventasItem"),
+      reportes: document.getElementById("reportesItem"),
+      permisos: document.getElementById("configuracionesItem"),
+    };
+
+    for (const [key, element] of Object.entries(menuItems)) {
+      if (!modulos.includes(key) && element) {
+        element.classList.add("d-none");
+      }
+    }
+  })();
+</script>
